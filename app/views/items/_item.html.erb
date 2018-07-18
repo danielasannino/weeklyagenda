@@ -1,10 +1,13 @@
 <tr>
-  <div class="form-group">
-    <td class="form-check form-check-inline">
-      <input id="<%= item.id %>" type="checkbox" class="form-check-input">
-      <%= link_to "", user_item_path(item.user, item), method: :delete, data: { confirm: "Remove \"#{item.name}\". Are you sure?" }, remote: true, class:'delete-item glyphicon glyphicon-ok' %>
-    </input>
-    <label for="<%= item.id %>" class="checkbox-inline"><%= item.name %></label>
+  <% if current_user == item.user %>
+  <td>
+    <%= link_to "", user_item_path(item.user, item), method: :delete, data: { confirm: "Remove \"#{item.name}\". Are you sure?" }, remote: true, class:'delete-item glyphicon glyphicon-ok' %>
   </td>
-</div>
+  <% end %>
+  <td>
+    <%= item.name %>
+  </td>
+  <td>
+    <%= distance_of_time_in_words(Time.now, item.created_at+7.days) %>
+  </td>
 </tr>
