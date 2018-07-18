@@ -29,6 +29,8 @@ gem 'devise'
 
 gem 'devise-bootstrapped'
 
+gem 'whenever', require: false
+
 gem 'faker'
 
 # Use CoffeeScript for .coffee assets and views

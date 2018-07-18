@@ -36,16 +36,17 @@
             <div class="col-md-12">
               <div class="row">
                 <div class="col-sm-12">
-                  <h2 class="text-center">To Do list</h2>
+                  <h2 class="text-center"> Weekly To Do List</h2>
                   <table class="table">
                     <thead>
+                      <% if current_user == @user %>
                       <th>Finish</th>
+                      <% end %>
                       <th>Task</th>
                       <th>Expiration</th>
                     </thead>
                     <%= render(@items) || "There is nothing in the todo list." %>
                   </table>
-
                 </div>
               </div>
               <% if current_user == @user %>
